@@ -9,14 +9,32 @@ class Main extends Component {
                     <svg id="svg" viewBox="-300 0 950 270" >
                         <path d="M-314,267 C105,364 400,100 812,279" fill="none" stroke="white" strokeWidth="120" strokeLinecap="round"/>
                     </svg>
-                    <Container id="main-content">
+                    <Container>
                         <Row>
-                            <Col>
-                                <Image src="quill-texting.png" height="95px"/>
-                                <span className="logo">TODO.IT</span>
+                            <Col className="d-flex justify-content-between">
+                                <div>
+                                    <Image src="note-01.png" height="70px"/>
+                                    <span className="logo">TODO.IT</span>
+                                </div>
+                                <div>
+                                    <p id="started">Get Started</p>
+                                </div>
                             </Col>
                         </Row>
-                        <h1>Section Content</h1>
+                        <Row>
+                            <Col className="mt-4">
+                                <div className="main-header">
+                                    <div className="bodymovin" data-icon="https://s3.amazonaws.com/iconfinder-files/week-of-icons/2018/animations/01.json"></div>
+                                    <p className="header">organize<br/>with 
+                                        <span className="todoit"> todo.it</span>
+                                    </p>
+                                    <p id="scroll-text">scroll</p>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Image src="scroll.svg" id="scroll"/>
+                        </Row>
                     </Container>
                 </div>
         )

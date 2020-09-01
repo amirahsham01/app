@@ -33,7 +33,7 @@ export default class AddTodo extends Component {
     let { description, scheduled } = this.state;
     return (
         <Container className="mt-4">
-            <h1>Add Todo</h1>
+            <h2>Add Todo</h2>
             <Row>
                 <Form.Control
                 className="my-2"

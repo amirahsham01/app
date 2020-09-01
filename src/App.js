@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import './index.css';
+import './index.scss';
 import Main from "./component/Main/Main";
 import Home from "./component/Home";
 import Register from "./component/Auth/Register";
 import Login from "./component/Auth/Login";
-import AddTodo from './component/Todos/AddTodo';
 import Todo from "./component/Todos/Todo";
 import Navigation from "./component/Navigation";
 import PrivateRoute from "./component/PrivateRoute";
@@ -125,10 +124,9 @@ export default class App extends Component {
         <Switch>
           {/* <Route path="/todo/:id" exact component={Todo} /> */}
           <Route path="/main" exact render={() => <Main />} />
-          <Route path="/new" exact render={() => <AddTodo />} />
+          {/* <Route path="/new" exact render={() => <AddTodo />} /> */}
           <PrivateRoute exact path="/" isAuth={isAuth} component={Home} />
           <PrivateRoute exact path="/todo/:id" isAuth={isAuth} component={Todo} />
-          {/* <PrivateRoute exact path="/new" isAuth={isAuth} component={AddTodo} /> */}
 
           <Route exact path="/register" render={() => isAuth ? <Redirect to="/"/> : <Register register={this.registerHandler}/>} />
           <Route exact path="/login" render={() => isAuth ? <Redirect to="/"/> : <Login login={this.loginHandler}/>} />

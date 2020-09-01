@@ -1,0 +1,41 @@
+@function textShadow($precision, $size, $color){
+    $value: null; 
+    $offset: 0;
+    $length: $size * (1 / $precision) - 1;
+
+    @for $i from 0 through $length {
+      $offset: $offset + $precision;
+      $shadow: $offset + px $offset + px $color;
+      $value: append($value, $shadow, comma);
+    }
+    
+    @return $value;
+}
+
+#first-section {
+    background: #7f69fb;
+    position: relative;
+    height: 750px;
+}
+
+svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+  
+h1 {
+    text-align: center;
+    font-size: 67px;
+    font-weight: bold;
+    color: #7f69fb;
+    -webkit-text-stroke: 2px whitesmoke;
+    text-shadow: textShadow(0.25, 6, darkblue);
+}
+
+.logo {
+    font-size: 22px;
+    color: whitesmoke;
+    padding: 10px;
+}

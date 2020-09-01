@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddTodo from "./Todos/AddTodo";
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
@@ -49,6 +50,9 @@ export default class Home extends Component {
                                 </Card>
                             </Col>
                         ))}
+                    </Row>
+                    <Row>
+                        <AddTodo/>
                     </Row>
                 </Container>
             </div>

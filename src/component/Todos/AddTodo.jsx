@@ -18,7 +18,9 @@ export default class AddTodo extends Component {
 
   submitHandler = () => {
     console.log(this.state);
-    Axios.post(`${URL}/todos`, this.state)
+    let token = localStorage.getItem("token");
+
+    Axios.post(`${URL}/todos`, this.state, {"headers" : {"x-auth-token": token}})
         .then((res) => {
             console.log("done");
         })

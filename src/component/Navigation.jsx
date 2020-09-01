@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Image } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 function Navigation({ user, logout }) {
@@ -7,14 +7,14 @@ function Navigation({ user, logout }) {
         <Navbar variant="light" style={{background:'#7f69fb'}} className="py-3">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto ml-5">
+                {/* <Nav className="mr-auto ml-5">
                 { user ? (
                         <>
                         <Nav.Link href="/" className="active">TODO.IT</Nav.Link>
                         </>
                     ) : ''}
-                </Nav>
-                <Nav className="mr-5">
+                </Nav> */}
+                <Nav className="ml-auto mr-5">
                     { user ? (
                         <>
                         <Nav.Link href="#user">

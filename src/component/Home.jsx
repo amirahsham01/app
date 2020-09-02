@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddTodo from "./Todos/AddTodo";
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import SideNav from "./SideNav";
+import { Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -35,26 +36,27 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <Container className="mt-4">
-                    <h3>Todos</h3>
-                    <Row className="mt-4">
-                        {this.state.todos.map((todo) => (
-                            <Col key={todo._id} md="4">
-                                <Card>
-                                    <Card.Body>
-                                        {todo.description}
-                                        <div>
-                                            <Link to={`/todo/${todo._id}`}>See Todo</Link>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                    <Row>
-                        <AddTodo/>
-                    </Row>
-                </Container>
+                <SideNav/>
+                <div className="mt-4 main">
+                        <h4>Todos</h4>
+                        <Row className="mt-4">
+                            {this.state.todos.map((todo) => (
+                                <Col key={todo._id} md="4">
+                                    <Card>
+                                        <Card.Body>
+                                            {todo.description}
+                                            <div>
+                                                <Link to={`/todo/${todo._id}`}>See Todo</Link>
+                                            </div>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))}
+                        </Row>
+                        <Row>
+                            <AddTodo/>
+                        </Row>
+                </div>
             </div>
         )
     }

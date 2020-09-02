@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import EditTodo from "./EditTodo"
+import EditTodo from "./EditTodo";
+import Comment from "./Comment";
 import Axios from 'axios';
-import { Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import SideNav from '../SideNav';
 
 const URL = process.env.REACT_APP_URL;
 
 export default class Todo extends Component {
     state = {
         todo: null,
+        edit: false,
+    };
+
+    showEdit = () => {
+        this.setState((prevState) => ({ edit: !prevState.edit }));
     };
 
     editTodo = (obj, id) => {
@@ -38,18 +45,29 @@ export default class Todo extends Component {
     }
 
     render() {
-        let { todo } = this.state;
+        let { todo, edit } = this.state;
         return (
-            <Container className="mt-4">
-                <h1>Todo here</h1>
-                {todo ? (
-                    <div>
-                        {todo.description}
-                        <p>status: <span className={this.state.todo.status === "completed" ? 'green' : 'red'}>{todo.status}</span></p>
-                        <EditTodo todo={todo} editTodo={this.editTodo} />
-                    </div>
-                ) : ("error leh")}
-            </Container>
+            <div className="mt-4">
+                <SideNav/>
+                <div className="main">
+                    <h4>Todo here</h4>
+                    {todo ? (
+                        <div>
+                            <div>
+                                {todo.description}
+                                <p>status: 
+                                    <span className={this.state.todo.completed === "true" ? 'green' : 'red'}>
+                                    {this.state.todo.completed === "true" ? " completed" : " incompleted"}
+                                    </span>
+                                </p>
+                            </div>
+                            <Button onClick={this.showEdit}>Edit Todo</Button>
+                            {edit && <EditTodo todo={todo} editTodo={this.editTodo} />}
+                            <Comment/>
+                        </div>
+                    ) : ("error leh")}
+                </div>
+            </div>
         )
     }
 }

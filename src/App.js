@@ -18,7 +18,6 @@ export default class App extends Component {
   state = {
     todos: [],
     errorMessage: null,
-    successMessage: null,
     isAuth: false,
     user: null,
   };
@@ -115,15 +114,14 @@ export default class App extends Component {
   }
 
   render() {
-    let { isAuth, user, errorMessage, successMessage } = this.state;
+    let { isAuth, user, errorMessage } = this.state;
     return (
       <Router>
         {errorMessage && <Alert>{errorMessage}</Alert>}
-        {successMessage && <Alert>{successMessage}</Alert>}
         <Navigation user={user} logout={this.logoutHandler} />
         <Switch>
           {/* <Route path="/todo/:id" exact component={Todo} /> */}
-          <Route path="/main" exact render={() => <Main />} />
+          <Route path="/main" exact render={() => !isAuth ? <Main /> : <Redirect to="/"/>} />
           {/* <Route path="/new" exact render={() => <AddTodo />} /> */}
           <PrivateRoute exact path="/" isAuth={isAuth} component={Home} />
           <PrivateRoute exact path="/todo/:id" isAuth={isAuth} component={Todo} />

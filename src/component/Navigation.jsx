@@ -4,16 +4,17 @@ import { Link } from "react-router-dom";
 
 function Navigation({ user, logout }) {
     return (
-        <Navbar variant="light" style={{background:'#7f69fb'}} className="py-3">
+        <Navbar variant="light" style={{background:'#7f69fb'}} className="navbar py-0">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                {/* <Nav className="mr-auto ml-5">
+                <Nav className="mr-auto ml-3">
                 { user ? (
                         <>
-                        <Nav.Link href="/" className="active">TODO.IT</Nav.Link>
+                        <Nav.Link href="/"><i className="fa fa-home home-link"></i></Nav.Link>
+                        <input placeholder="Find" className="search-field"/>
                         </>
                     ) : ''}
-                </Nav> */}
+                </Nav>
                 <Nav className="ml-auto mr-5">
                     { user ? (
                         <>

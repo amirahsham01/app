@@ -2,6 +2,7 @@
 @import url("https://use.typekit.net/nfp1cpw.css");
 
 body {
+  background: whitesmoke;
   color: black;
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -15,10 +16,6 @@ code {
     monospace;
 }
 
-navbar {
-  opacity: 0;
-}
-
 .green {
   color: green;
 }
@@ -27,3 +24,104 @@ navbar {
   color: red;
 }
 
+.navbar {
+  z-index: 2;
+}
+
+.sidenav {
+  height: 100%;
+  width: 280px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  // border-right: 1px inset rgb(180, 180, 180);
+  overflow-x: hidden;
+  padding-top: 70px;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 4px;
+}
+
+.main {
+  margin-left: 340px;
+  padding: 0px 10px;
+}
+
+.projects {
+  padding: 20px 5px 0px 20px;
+}
+
+.tab {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.home-link {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 27px;
+  padding: 0;
+  padding-top: 3px;
+  margin: 0 5px;
+}
+
+.search-field {
+  font-size: 14px;
+  height: 32px;
+  width: 195px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.35);
+  color: black;
+  padding-left: 10px;
+}
+
+.search-field:focus { 
+  outline: none; 
+}
+
+.dropdown:hover .dropdown_menu--animated {
+  display: block;
+}
+
+.dropdown_menu--animated {
+  display: none;
+}
+
+li {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown_menu-6 {
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}

@@ -84,7 +84,6 @@ export default class App extends Component {
         localStorage.setItem("token", res.data.token);
         this.setState({
           isAuth: true,
-          successMessage: res.data.message,
         });
       })
       .catch((err) => {
@@ -121,13 +120,13 @@ export default class App extends Component {
         <Navigation user={user} logout={this.logoutHandler} />
         <Switch>
           {/* <Route path="/todo/:id" exact component={Todo} /> */}
-          <Route path="/main" exact render={() => !isAuth ? <Main /> : <Redirect to="/"/>} />
+          <Route path="/" exact render={() => !isAuth ? <Main /> : <Redirect to="/"/>} />
           {/* <Route path="/new" exact render={() => <AddTodo />} /> */}
-          <PrivateRoute exact path="/" isAuth={isAuth} component={Home} />
+          <PrivateRoute exact path="/home" isAuth={isAuth} component={Home} />
           <PrivateRoute exact path="/todo/:id" isAuth={isAuth} component={Todo} />
 
-          <Route exact path="/register" render={() => isAuth ? <Redirect to="/"/> : <Register register={this.registerHandler}/>} />
-          <Route exact path="/login" render={() => isAuth ? <Redirect to="/"/> : <Login login={this.loginHandler}/>} />
+          <Route exact path="/register" render={() => isAuth ? <Redirect to="/home"/> : <Register register={this.registerHandler}/>} />
+          <Route exact path="/login" render={() => isAuth ? <Redirect to="/home"/> : <Login login={this.loginHandler}/>} />
         </Switch>
       </Router>
     )

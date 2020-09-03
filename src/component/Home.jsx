@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddTodo from "./Todos/AddTodo";
 import SideNav from "./SideNav";
+import Today from "./Todos/Today";
 import { Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
@@ -38,7 +39,8 @@ export default class Home extends Component {
             <div>
                 <SideNav/>
                 <div className="mt-4 main">
-                        <h4>Todos</h4>
+                    <Today/>
+                        <h4 className="mt-4">Todos</h4>
                         <Row className="mt-4">
                             {this.state.todos.map((todo) => (
                                 <Col key={todo._id} md="4">

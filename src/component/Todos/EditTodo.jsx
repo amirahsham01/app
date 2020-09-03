@@ -23,7 +23,7 @@ export default class EditTodo extends Component {
         <h1>Edit Todo</h1>
           <Row>
             <Form.Control
-              className="my-2"
+              className="mb-4"
               name="description"
               value={description}
               onChange={this.changeHandler}

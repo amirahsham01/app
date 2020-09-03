@@ -10,7 +10,7 @@ function Navigation({ user, logout }) {
                 <Nav className="mr-auto ml-3">
                 { user ? (
                         <>
-                        <Nav.Link href="/"><i className="fa fa-home home-link"></i></Nav.Link>
+                        <Nav.Link href="/home"><i className="fa fa-home home-link"></i></Nav.Link>
                         <input placeholder="Find" className="search-field"/>
                         </>
                     ) : ''}
@@ -31,7 +31,7 @@ function Navigation({ user, logout }) {
                           Login
                         </Link>
                         <Link to="/register" className="nav-link">
-                          Register
+                          Sign Up
                         </Link>
                         </>
                     )}

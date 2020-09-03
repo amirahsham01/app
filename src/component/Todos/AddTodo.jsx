@@ -19,16 +19,26 @@ export default class AddTodo extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addLabel = (e) => {
-    // let l =e.target.value;
-    // Axios.post(`${URL}/labels`, {name:this.state.label})
-    // .then((res) => {
-    //     console.log("done");
-        this.setState({ label: '' , labels:[...this.state.labels, this.state.label]});
-    // })
-    // .catch((err) => {
-    //     console.log(err);
-    // });
+  addLabel = async (e) => {
+    let token = localStorage.getItem("token");
+    let label = this.state.label;
+    let result = await Axios.get(`${URL}/todos`, {headers: {"x-auth-token": token}})
+    let array = result.data.todos;
+
+    for (let index = 0; index < array.length; index++) {
+      const todo = array[index];
+      for (let index = 0; index < todo.labels.length; index++) {
+        const element = todo.labels[index];
+        
+        if(element === label) {
+          console.log("label exists!");
+          break;
+        } else {
+          console.log("label saved");
+          this.setState({ label: '' , labels: [...this.state.labels, this.state.label] });
+        }
+      }
+    }
   }
 
   submitHandler = () => {

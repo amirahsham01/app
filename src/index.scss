@@ -16,6 +16,60 @@ code {
     monospace;
 }
 
+.form {
+  background-image: url('/form.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: auto;
+  height: 430px;
+  margin: 0 auto;
+}
+
+.form-two {
+  background-image: url('/form-2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: auto;
+  height: 490px;
+  margin: 0 auto;
+}
+
+.input {
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	border-radius: 3px;
+  padding: 10px;
+  width: 70%;
+	outline: none;
+}
+
+.login {
+  font-family: 'termina', sans-serif;
+  font-weight: bold;
+  color: rgb(65, 65, 65);
+  letter-spacing: 2px;
+}
+
+.form-button {
+	background-color: white;
+	border-radius:28px;
+	border:1px solid rgb(65, 65, 65);
+	display:inline-block;
+	cursor:pointer;
+	color:rgb(65, 65, 65);
+	font-family:Arial;
+	font-size:17px;
+  padding: 10px 40px;
+  margin: 10px auto;
+	text-decoration:none;
+}
+
+.form-button:hover {
+	background-color:#e2dcfe;
+}
+
 .green {
   color: green;
 }
@@ -94,6 +148,14 @@ code {
 
 .search-field:focus { 
   outline: none; 
+}
+
+.label {
+  cursor: pointer;
+}
+
+.label-wrapper {
+  display: inline;
 }
 
 .dropdown:hover .dropdown_menu--animated {
